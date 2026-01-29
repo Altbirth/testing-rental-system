@@ -47,6 +47,11 @@ body {
   -webkit-font-smoothing:antialiased;
   line-height: 1.45;
 }
+
+
+.logo-drawer{ width:44px; height:44px; border-radius:8px; overflow:hidden; display:flex; align-items:center; justify-content:center; background: rgba(255,255,255,0.04); }
+.logo-drawer img{ width:100%; height:100%; object-fit:contain; display:block; }
+
 .container { max-width: var(--container-width); margin: 0 auto; padding: var(--gutter); }
 
 /* ============================
@@ -85,7 +90,7 @@ body {
 .brand-name { font-weight:700; color:var(--text); margin-left:6px; }
 
 /* desktop nav */
-.main-nav { display:flex; gap:14px; align-items:center; }
+.main-nav { display:flex; gap:18px; align-items:center; }
 .nav-link { color: rgba(255,255,255,0.95); text-decoration:none; font-weight:600; }
 
 /* header actions (Book button, avatar) */

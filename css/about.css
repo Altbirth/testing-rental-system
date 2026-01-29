@@ -41,7 +41,8 @@ body {
   line-height: 1.45;
 }
 .container { max-width: var(--container-width); margin: 0 auto; padding: var(--gutter); }
-
+.logo-drawer{ width:44px; height:44px; border-radius:8px; overflow:hidden; display:flex; align-items:center; justify-content:center; background: rgba(255,255,255,0.04); }
+.logo-drawer img{ width:100%; height:100%; object-fit:contain; display:block; }
 /* ============================
    HEADER
    ============================ */
