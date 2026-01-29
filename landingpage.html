@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CertiCode — Landing</title>
+
+  <!-- Link to stylesheet (edit variables in langdingpage.css) -->
+  <link rel="stylesheet" href="css/langdingpage.css" />
+</head>
+<body>
+  <!-- ==========================
+       SITE HEADER
+       (Edit header styles in CSS under /* HEADER */)
+       ========================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <!-- MOBILE: Hamburger button on the LEFT (visible on small screens) -->
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="hamburgerBtn">☰</button>
+
+      <!-- left: logo / brand -->
+      <div class="brand">
+        <div class="logo">Ci</div>
+        <div class="brand-name">CertiCode</div>
+      </div>
+
+      <!-- center nav (desktop only) -->
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="#machines">Rentals</a>
+        <a class="nav-link" href="#pricing">Pricing</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+
+      <!-- right: actions (Book + Avatar) -->
+      <div class="header-actions">
+        <button class="btn btn-outline">Book Now</button>
+        <div class="avatar" aria-hidden="true">JS</div>
+      </div>
+    </div>
+
+    <!-- ==========================
+         MOBILE NAV (hidden on desktop)
+         - Populate links here. Edit styles in CSS under /* MOBILE NAV */
+         - This panel is toggleable via the hamburger button.
+         ========================== -->
+    <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a class="mobile-link" href="#">Home</a>
+      <a class="mobile-link" href="#machines">Rentals</a>
+      <a class="mobile-link" href="#pricing">Pricing</a>
+      <a class="mobile-link" href="#about">About</a>
+      <a class="mobile-link" href="#contact">Contact</a>
+      <div class="mobile-actions">
+        <button class="btn btn-outline">Book Now</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==========================
+       HERO SECTION (NO IMAGE)
+       - Text and CTAs are centered; edit sizes in CSS under /* HERO */
+       ========================== -->
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <!-- CENTERED HERO TEXT -->
+        <div class="hero-text center">
+          <span class="pill">New Arrivals — 5% Off</span>
+
+          <!-- Main heading: "Home" word uses accent color -->
+          <h1 class="hero-title">Bring the Party <span class="accent">Home</span></h1>
+
+          <!-- Subheading / description -->
+          <p class="hero-sub">High-quality videoke machines with 50k+ songs and wireless mics delivered to your doorstep. Crystal-clear sound, professional setup.</p>
+
+          <!-- Centered CTA buttons -->
+          <div class="hero-cta centered">
+            <a class="btn btn-primary" href="#machines">Browse Machines</a>
+            <a class="btn btn-ghost" href="#packages">View Packages</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================
+         CHOOSE MACHINE
+         ========================== -->
+    <section id="machines" class="choose">
+      <div class="container">
+        <h2 class="section-title">Choose Your Machine</h2>
+
+        <!-- tabs -->
+        <div class="tabs">
+          <button class="tab active">All Machines</button>
+          <button class="tab">Standard</button>
+          <button class="tab">Premium</button>
+        </div>
+
+        <!-- cards -->
+        <div class="cards">
+          <article class="card featured">
+            <div class="card-head">
+              <h3>Platinum Pro</h3>
+              <div class="price">₱1,500</div>
+            </div>
+            <ul class="card-specs">
+              <li>50,000+ Songs</li>
+              <li>2 Wireless Mics + Mixer</li>
+              <li>2 x 12&quot; Active Speakers</li>
+            </ul>
+            <div class="card-foot">
+              <a class="btn btn-primary" href="#">Rent Platinum Pro</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <h3>Party Box X</h3>
+              <div class="price">₱2,500</div>
+            </div>
+            <ul class="card-specs">
+              <li>70,000+ Songs | HD Video</li>
+              <li>4 Wireless Mics</li>
+              <li>4 x 12&quot; Speaker System</li>
+            </ul>
+            <div class="card-foot">
+              <a class="btn btn-secondary" href="#">Rent Party Box X</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <h3>Mini Star</h3>
+              <div class="price">₱800</div>
+            </div>
+            <ul class="card-specs">
+              <li>30,000+ Classic Songs</li>
+              <li>2 Wireless Microphones</li>
+              <li>Portable 8&quot; Speaker</li>
+            </ul>
+            <div class="card-foot">
+              <a class="btn btn-secondary" href="#">Rent Mini Star</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================
+         DELIVERY & ESTIMATOR
+         ========================== -->
+    <section class="delivery">
+      <div class="container delivery-grid">
+        <div class="delivery-left">
+          <h3>Fast & Reliable Delivery</h3>
+          <p>We deliver, set up, and pick up — the best equipment for your event.</p>
+          <div class="delivery-features">
+            <div class="feature"><strong>15 mins</strong><span>Setup time</span></div>
+            <div class="feature"><strong>45 mins</strong><span>Avg Delivery</span></div>
+          </div>
+        </div>
+
+        <aside class="estimator">
+          <h4>Delivery Estimator</h4>
+          <label for="loc">Your Location</label>
+          <input id="loc" placeholder="Enter city or address" />
+          <div class="est-row">
+            <div class="est-label">Estimated Delivery Fee</div>
+            <div class="est-value">₱150.00</div>
+          </div>
+          <div class="large-box" aria-hidden="true"></div>
+          <button class="btn btn-primary btn-block">Calculate Final Price</button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==========================
+         STATS & FOOTER
+         ========================== -->
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat"><div class="stat-num">5,000+</div><div class="stat-label">Parties Hosted</div></div>
+        <div class="stat"><div class="stat-num">4.9/5</div><div class="stat-label">Customer Rating</div></div>
+        <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Live Support</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Uptime</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="logo small">Ci</div>
+        <p>© 2026 CertiCode Videoke Rentals</p>
+      </div>
+      <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </footer>
+
+  <!-- ==========================
+       MOBILE NAV TOGGLE SCRIPT
+       (unchanged)
+       ========================== -->
+  <script>
+    (function () {
+      const ham = document.getElementById('hamburgerBtn');
+      const mobileNav = document.getElementById('mobileNav');
+
+      function openNav() {
+        ham.setAttribute('aria-expanded', 'true');
+        mobileNav.classList.add('open');
+        mobileNav.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav() {
+        ham.setAttribute('aria-expanded', 'false');
+        mobileNav.classList.remove('open');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      ham.addEventListener('click', function () {
+        const expanded = ham.getAttribute('aria-expanded') === 'true';
+        if (expanded) closeNav();
+        else openNav();
+      });
+
+      mobileNav.querySelectorAll('.mobile-link').forEach(function (a) {
+        a.addEventListener('click', closeNav);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeNav();
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!mobileNav.classList.contains('open')) return;
+        const isInside = mobileNav.contains(e.target) || ham.contains(e.target);
+        if (!isInside) closeNav();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+/* langdingpage.css
+   Colors updated to the hex palette you specified:
+   - navbar / primary color: #013A63
+   - hero gradient: #013A63 -> #FB7012
+   - choose-machine background: #013A63
+   - delivery estimator bg: #64748B
+   - stats background: #013A63
+   - footer background: #0F172A
+
+   The file is organized into sections with comments so you can quickly find
+   what to edit. Change the variables in :root to tweak the palette.
+*/
+
+/* ============================
+   VARIABLES - edit colors & sizes here
+   ============================ */
+:root{
+  /* palette (your values mapped to variables) */
+  --nav-primary:    #013A63;  /* navbar, choose machine, stats */
+  --hero-top:       #013A63;  /* hero gradient top */
+  --hero-bottom:    #FB7012;  /* hero gradient bottom */
+  --estimator-bg:   #64748B;  /* delivery estimator background */
+  --footer-bg:      #0F172A;  /* footer background */
+  --panel:          #1e293b;  /* card panels (kept neutral) */
+  --muted:          #94a3b8;
+  --text:           #FFFFFF;
+  --accent:         #FB7012;  /* CTA */
+  --accent-soft:    #FFA970;
+
+  /* structural */
+  --container-width: 1100px;
+  --gutter: 20px;
+  --card-height: 220px;
+  --radius: 12px;
+}
+
+/* ============================
+   BASE RESET
+   ============================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body { height: 100%; }
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  /* subtle background that works with the dark navbar and footer */
+  background: linear-gradient(180deg, #072030 0%, #0f172a 60%);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  line-height: 1.45;
+}
+.container { max-width: var(--container-width); margin: 0 auto; padding: var(--gutter); }
+
+/* ============================
+   HEADER / NAVBAR
+   (navbar background is --nav-primary)
+   ============================ */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--nav-primary);                /* NAV BAR COLOR */
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.header-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+/* hamburger (left on mobile) */
+.hamburger {
+  display:none;
+  background:transparent;
+  border:0;
+  color:var(--text);
+  font-size:20px;
+  cursor:pointer;
+  padding:8px;
+  margin-right:6px;
+  z-index:120;
+}
+
+/* brand / logo */
+.brand { display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+.logo { width:40px; height:40px; border-radius:8px; background:#0ea5a5; color:#072023; display:flex; align-items:center; justify-content:center; font-weight:700; }
+.brand-name { font-weight:700; color:var(--text); margin-left:6px; }
+
+/* desktop nav */
+.main-nav { display:flex; gap:14px; align-items:center; }
+.nav-link { color: rgba(255,255,255,0.95); text-decoration:none; font-weight:600; }
+
+/* header actions (Book button, avatar) */
+.header-actions { display:flex; gap:10px; align-items:center; }
+.btn { padding:10px 14px; border-radius:8px; font-weight:700; cursor:pointer; border:0; }
+.btn-outline { background:transparent; border:1px solid rgba(255,255,255,0.08); color:var(--text); }
+.avatar { width:36px; height:36px; border-radius:50%; background:#fbd38d; color:#072023; display:flex; align-items:center; justify-content:center; }
+
+/* ============================
+   MOBILE NAV PANEL
+   ============================ */
+.mobile-nav {
+  display:none;
+  position:absolute; left:0; right:0; top:64px;
+  background: var(--nav-primary);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  padding: 12px 16px;
+  z-index:110;
+  transform-origin: top center;
+  transform: translateY(-8px) scaleY(0.98);
+  opacity:0;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+.mobile-nav.open {
+  display:block;
+  transform: translateY(0) scaleY(1);
+  opacity:1;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+}
+.mobile-nav .mobile-link { display:block; padding:12px 10px; color:var(--text); text-decoration:none; font-weight:700; border-radius:8px; margin:6px 0; }
+.mobile-actions { margin-top:8px; }
+
+/* ============================
+   HERO (centered, with linear gradient top->bottom)
+   - top color: --hero-top (#013A63)
+   - bottom color: --hero-bottom (#FB7012)
+   ============================ */
+.hero {
+  padding: 56px 0;
+  text-align: center;
+  background: linear-gradient(180deg, var(--hero-top) 0%, var(--hero-bottom) 100%); /* HERO GRADIENT */
+  color: var(--text);
+}
+.hero-inner {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap: 20px;
+  flex-direction: column; /* keep centered on desktop & mobile */
+  padding: 36px 0;
+}
+
+/* pill */
+.pill {
+  display:inline-block;
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+/* title and accent word */
+.hero-title {
+  font-size: 36px;
+  margin: 0 0 10px;
+  line-height: 1.02;
+  font-weight:800;
+}
+.hero-title .accent {
+  color: var(--accent-cta, var(--accent)); /* orange "Home" */
+}
+
+/* subtitle */
+.hero-sub {
+  color: rgba(245,246,248,0.95);
+  max-width: 60ch;
+  margin: 0 auto 18px;
+}
+
+/* centered CTA */
+.hero-cta.centered {
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  align-items:center;
+}
+.btn-primary {
+  background: var(--accent);  /* CTA orange */
+  color: #072023;
+}
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--text);
+}
+
+/* ============================
+   CHOOSE MACHINE
+   - section background uses the same color as navbar (--nav-primary)
+   ============================ */
+.choose {
+  padding: 36px 0;
+  background: var(--nav-primary);   /* CHOOSE MACHINE BACKGROUND = NAV BAR COLOR */
+  color: var(--text);
+}
+.container .section-title { color: var(--text); } /* ensure title is visible */
+
+/* tabs centered */
+.tabs { display:flex; gap:8px; margin-bottom:12px; justify-content:center; }
+.tab { padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,0.06); background: transparent; color: var(--text); }
+.tab.active { background: rgba(0,0,0,0.12); }
+
+/* card grid: cards keep using panel color to contrast against nav background */
+.cards {
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:18px;
+  padding-top: 8px;
+}
+.card {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding:14px;
+  min-height: var(--card-height);
+  border:1px solid rgba(255,255,255,0.03);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.card.featured { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
+.card-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+.price { color: var(--accent); font-weight:800; }
+.card-specs { list-style:none; color:var(--muted); margin-bottom:12px; padding-left:0; }
+
+/* ============================
+   DELIVERY / ESTIMATOR
+   - estimator card background uses --estimator-bg (#64748B)
+   ============================ */
+.delivery { padding:36px 0; background: transparent; }
+.delivery-grid { display:grid; grid-template-columns: 1fr 360px; gap:20px; align-items:start; }
+
+/* estimator card */
+.estimator {
+  background: var(--estimator-bg);       /* ESTIMATOR BACKGROUND COLOR */
+  border-radius: 10px;
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--text);
+}
+.est-row { display:flex; justify-content:space-between; align-items:center; margin:12px 0; padding:10px; border-radius:8px; background: rgba(255,255,255,0.02); }
+.est-value { color: var(--accent); font-weight:800; }
+.large-box { height:84px; border-radius:8px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02)); margin-bottom:12px; }
+
+/* ============================
+   STATS (same background as NAVBAR)
+   ============================ */
+.stats {
+  padding: 28px 0;
+  background: var(--nav-primary); /* STATS BACKGROUND = NAV BAR COLOR */
+  color: var(--text);
+}
+.stats-grid {
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:12px;
+}
+.stat {
+  background: rgba(255,255,255,0.03);
+  padding:12px;
+  border-radius:8px;
+  text-align:center;
+}
+
+/* ============================
+   FOOTER (background color set to --footer-bg)
+   ============================ */
+.site-footer {
+  background: var(--footer-bg);   /* FOOTER BACKGROUND = #0F172A */
+  padding: 18px 0;
+  border-top: 1px solid rgba(255,255,255,0.02);
+  color: var(--text);
+}
+.footer-inner { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+
+/* ============================
+   RESPONSIVE / MOBILE RULES
+   - show hamburger, hide desktop nav
+   - hero remains centered
+   ============================ */
+@media (max-width: 780px) {
+  .main-nav { display:none; }
+  .hamburger { display:inline-block; }
+
+  .hero-inner { padding-top: 18px; gap:12px; }
+  .hero-title { font-size: 28px; }
+
+  .cards { grid-template-columns: 1fr; }
+  .card { min-height: auto; padding:12px; }
+
+  .delivery-grid { grid-template-columns: 1fr; }
+  .estimator { margin-top:12px; }
+  .large-box { height:120px; }
+
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap:10px; }
+}
+
+/* very small phones */
+@media (max-width: 420px) {
+  .hero-title { font-size:24px; }
+  .pill { font-size:12px; padding:6px 8px; }
+  .brand-name { display:none; }
+  .btn { padding:8px 10px; font-size:14px; }
+}
