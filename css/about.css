@@ -250,7 +250,7 @@ body {
    - accordion panels use dark background (var(--panel-2) or rgba)
    - ensure text is visible and not white box
    ============================ */
-.terms { padding: 28px 0; background: #0C568C; }
+.terms { padding: 28px 0; background: #013A63; }
 .accordion { display:block; gap:12px; }
 .accordion-item { margin-bottom:12px; }
 .accordion-toggle {
