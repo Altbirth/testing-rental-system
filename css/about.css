@@ -66,9 +66,9 @@ body {
 .main-nav a { color: rgba(255,255,255,0.95); text-decoration:none; font-weight:600; }
 
 /* header actions */
-.header-actions { display:flex; gap:12px; align-items:center; }
+.header-actions { display:flex; gap:12px; align-items:center;}
 .btn { padding:10px 14px; border-radius:8px; font-weight:700; cursor:pointer; border:0; }
-.btn-outline { background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--text); }
+.btn-outline { background:#FB7012; border:1px solid rgba(255,255,255,0.06); color:var(--text); }
 .avatar { width:36px; height:36px; border-radius:50%; background:#fbd38d; color:#072023; display:flex; align-items:center; justify-content:center; }
 
 /* ============================
@@ -94,23 +94,133 @@ body {
 }
 .mobile-nav .mobile-link { display:block; padding:12px 10px; color:var(--text); text-decoration:none; font-weight:700; border-radius:8px; margin:6px 0; }
 
+
+
+
 /* ============================
-   HERO (CENTERED, NO IMAGE)
+   HERO (text + right-side image)
+
    ============================ */
+:root {
+  --hero-media-width: 520px; /* change this to make the right image wider or narrower */
+}
+
+/* HERO root */
 .hero {
   padding: 56px 0;
-  text-align: center;
   background: linear-gradient(180deg, var(--hero-top) 0%, var(--hero-bottom) 100%);
   color: var(--text);
 }
-.hero-inner { display:flex; justify-content:center; align-items:center; gap:20px; flex-direction:column; padding:36px 0; }
-.pill { display:inline-block; background: rgba(255,255,255,0.06); color: var(--text); padding:8px 14px; border-radius:999px; font-size:14px; margin-bottom:14px; }
-.hero-title { font-size:50px; margin:0 0 10px; line-height:1.02; font-weight:800; }
+
+/* MAIN LAYOUT: row on desktop, column on small screens */
+.hero-inner {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;        /* <-- row (text left, image right) */
+  padding: 36px 0;
+}
+
+/* TEXT COLUMN */
+.hero-text {
+  flex: 1 1 0;
+  max-width: calc(100% - var(--hero-media-width));
+  /* left-align the text on desktop for better composition; center on small screens below */
+  text-align: left;
+}
+
+/* small pill */
+.pill {
+  display:inline-block;
+  background: #4B5563;
+  color: var(--text);
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:14px;
+  margin-bottom:14px;
+}
+
+/* Heading and subtitle (kept your sizes) */
+.hero-title {
+  font-size:50px;
+  margin:0 0 10px;
+  line-height:1.02;
+  font-weight:800;
+}
 .hero-title .accent { color: var(--accent); }
-.hero-sub { color: rgba(245,246,248,0.95); max-width:60ch; margin:0 auto 18px; }
-.hero-cta.centered { display:flex; gap:12px; justify-content:center; align-items:center; }
-.btn-primary { background: var(--accent); color:#072023; }
-.btn-ghost { background: transparent; border:1px solid rgba(255,255,255,0.06); color:var(--text); }
+
+.hero-sub {
+  color: rgba(245,246,248,0.95);
+  max-width: 60ch;
+  margin: 0 0 18px;
+}
+
+/* CTA buttons: left on desktop, centered on mobile */
+.hero-cta.centered {
+  display:flex;
+  gap:12px;
+  justify-content:flex-start;  /* left on desktop */
+  align-items:center;
+  margin-top: 8px;
+}
+
+/* HERO MEDIA (right column) */
+.hero-media {
+  flex: 0 0 var(--hero-media-width); /* fixed column width */
+  max-width: var(--hero-media-width);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(2,8,23,0.35);
+  background: #0b1220; /* fallback background */
+}
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.btn-primary { background: var(--accent); color:white; padding: 15px; text-align: center;}
+.btn-ghost { background: transparent;  padding: 15px;  border:1px solid rgba(255, 255, 255, 0.76); color:var(--text); }
+
+/* ----------------------------
+   RESPONSIVE: stack on small screens
+   ---------------------------- */
+@media (max-width: 980px) {
+  :root { --hero-media-width: 420px; } /* reduce width on medium screens */
+
+  .hero-inner {
+    flex-direction: column;   /* stack for mobile */
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-text { max-width: 100%; text-align: center; } /* center text on mobile */
+  .hero-cta.centered { justify-content: center; }     /* center buttons on mobile */
+
+  .hero-media {
+    width: 100%;
+    max-width: 720px;
+    margin-top: 18px;
+    border-radius: 10px;
+  }
+  .hero-media img { height: 280px; object-position: center; }
+}
+
+/* very small phones */
+@media (max-width: 420px) {
+  .hero-title { font-size: 28px; }
+  .hero-media img { height: 180px; }
+  .pill { font-size: 12px; padding:6px 10px; }
+}
+
+
+
+
+
+
+
 
 /* ============================
    VALUES (uses nav-primary as background)
@@ -127,50 +237,54 @@ body {
 
 .values-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; margin-top:12px; }
 .value-card {
-  background: var(--panel);          /* dark card - NOT white */
+  background: #E8EAEF;          /* dark card - NOT white */
   padding:14px;
   border-radius:8px;
   border:1px solid rgba(255,255,255,0.03);
-  color: var(--text);
+  color: black ;
 }
-.value-icon { font-size:22px; margin-bottom:8px; }
+.value-icon { font-size:22px; margin-bottom:8px; background-color: #013A63; display:inline-block; padding:6px 10px; border-radius: 10px;}
 
 /* ============================
    TERMS / ACCORDION
    - accordion panels use dark background (var(--panel-2) or rgba)
    - ensure text is visible and not white box
    ============================ */
-.terms { padding: 28px 0; background: transparent; }
+.terms { padding: 28px 0; background: #0C568C; }
 .accordion { display:block; gap:12px; }
 .accordion-item { margin-bottom:12px; }
 .accordion-toggle {
   width:100%;
   text-align:left;
   padding:12px 16px;
-  background: var(--panel);
+  background: transparent;
   border:1px solid rgba(255,255,255,0.03);
-  font-weight:700;
+  font-weight:900;
   cursor:pointer;
   display:flex; justify-content:space-between; align-items:center;
   color:var(--text);
   border-radius:8px;
+  font-size: 20px;
 }
 
-/* PANEL CONTENT (was white — now uses dark panel variant) */
+/* PANEL CONTENT ( white ) */
 .accordion-panel {
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+  background:white; 
   border: 1px solid rgba(255,255,255,0.02);
-  padding:14px;
+  padding:50px;
   max-height:0;
   overflow:hidden;
-  transition: max-height 260ms ease;
+  transition: max-height 560ms ease;
   border-radius:0 0 8px 8px;
-  color: var(--text);
+  color: black;
+  font-size: 20px;
+  margin-bottom: 30px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
 }
 
 /* policy grid inside an accordion panel */
 .policy-grid { display:flex; gap:12px; margin-top:12px; }
-.policy { background: var(--panel); padding:12px; border-radius:8px; }
+.policy { background: #E5E7EB; padding:22px; border-radius:8px; font-size: 30px}
 
 /* ============================
    DELIVERY / ESTIMATOR

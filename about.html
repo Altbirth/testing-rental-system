@@ -60,26 +60,42 @@
   </header>
 
   <main>
-    <!-- ================================
-         HERO (CENTERED, NO IMAGE)
-         - Edit sizes and text in CSS under /* HERO */
-         ================================= -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-text center">
-          <span class="pill">Since 2010</span>
-          <h1 class="hero-title">Elevating Events with Professional Sound</h1>
-          <p class="hero-sub">
-            What started as a small garage project in 2010 has grown into the city's premier videoke rental service. We provide high-quality equipment and professional setup for parties, corporate events, and gatherings of every size.
-          </p>
+    
 
-          <div class="hero-cta centered">
-            <a class="btn btn-primary" href="rentals.html">Browse Machines</a>
-            <a class="btn btn-ghost" href="#values">Our Values</a>
-          </div>
-        </div>
+    <!-- ================================
+     HERO (text + right-side image)
+     Replace the previous hero section with this block.
+     Change the image src if your file is named differently.
+     ================================= -->
+<section class="hero">
+  <div class="container hero-inner">
+
+    <!-- HERO TEXT (left column) -->
+    <div class="hero-text">
+      <span class="pill">Since 2010</span>
+
+      <h1 class="hero-title">Elevating Events with Professional Sound</h1>
+
+      <p class="hero-sub">
+        What started as a small garage project in 2010 has grown into the city's premier videoke rental service.
+        We provide high-quality equipment and professional setup for parties, corporate events, and gatherings of every size.
+      </p>
+
+      <div class="hero-cta centered">
+        <a class="btn btn-primary" >Our Team 👥</a>
+        <a class="btn btn-ghost" >View Gallery</a>
       </div>
-    </section>
+    </div>
+
+    <!-- HERO MEDIA (right column) -->
+    <div class="hero-media" aria-hidden="true">
+      <img src="src/images/about-hero.jpg" alt="Team setting up equipment at an event" />
+    </div>
+  </div>
+</section>
+
+
+
 
     <!-- ================================
          CORE VALUES
@@ -123,25 +139,25 @@
 
         <div class="accordion">
           <div class="accordion-item">
-            <button class="accordion-toggle" aria-expanded="false">
-              1. Rental Duration & Logistics
+            <button class="accordion-toggle" aria-expanded="true">
+             💰 1. Rental Duration & Logistics
               <span class="accordion-indicator">▾</span>
             </button>
 
             <!-- accordion-panel: uses dark panel background (see CSS) -->
             <div class="accordion-panel">
               <p>Standard rental periods are 24 hours starting from the time of setup. Overtime rates apply at ₱25 per additional hour (unless pre-arranged).</p>
-              <ul>
-                <li>Delivery window: 8:00 AM – 12:00 PM</li>
-                <li>Pick-up window: Next day, 9:00 AM – 1:00 PM</li>
-                <li>The renter must be present at the time of delivery to sign the inspection report.</li>
-              </ul>
+
+                <p>Delivery window: 8:00 AM – 12:00 PM</p> 
+                <p> Pick-up window: Next day, 9:00 AM – 1:00 PM</p>
+                <p>The renter must be present at the time of delivery to sign the inspection report.</p>
+         
             </div>
           </div>
 
           <div class="accordion-item">
-            <button class="accordion-toggle" aria-expanded="false">
-              2. Liability & Equipment Care
+            <button class="accordion-toggle" aria-expanded="true">
+             👥 2. Liability & Equipment Care
               <span class="accordion-indicator">▾</span>
             </button>
 
@@ -155,8 +171,8 @@
           </div>
 
           <div class="accordion-item">
-            <button class="accordion-toggle" aria-expanded="false">
-              3. Cancellation Policy
+            <button class="accordion-toggle" aria-expanded="true">
+             🗓️ 3. Cancellation Policy
               <span class="accordion-indicator">▾</span>
             </button>
 
@@ -171,17 +187,17 @@
           </div>
 
           <div class="accordion-item">
-            <button class="accordion-toggle" aria-expanded="false">
-              4. Damage Fees
+            <button class="accordion-toggle" aria-expanded="true">
+              💸4. Damage Fees
               <span class="accordion-indicator">▾</span>
             </button>
 
             <div class="accordion-panel">
-              <ul>
-                <li>Wireless Microphone: ₱800 per unit (lost / irreparable)</li>
-                <li>Speaker: ₱3,000</li>
-                <li>LCD Monitor / Display: ₱4,500</li>
-              </ul>
+
+                <p>Wireless Microphone: ₱800 per unit (lost / irreparable)</p>
+                <p>Speaker: ₱3,000</p>
+                <p>LCD Monitor / Display: ₱4,500</p>
+
             </div>
           </div>
         </div>
