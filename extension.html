@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Submit Extension — CertiCode</title>
+
+  <!-- NOTE: uses site-wide header/footer styles from your rentals.css -->
+  <link rel="stylesheet" href="css/rentals.css" />
+  <!-- Booking page specific CSS -->
+  <link rel="stylesheet" href="css/extension.css" />
+</head>
+<body>
+
+  <!-- =========================
+       HEADER (USE: edit in rentals.html / rentals.css)
+       This header is copied from your rentals.html so both pages match.
+       Edit brand, nav links, CTA in rentals.html or rentals.css if you want site-wide changes.
+       ========================= -->
+  <header class="header" role="banner">
+    <div class="header-inner container">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <!-- Hamburger for mobile (toggled via JS) -->
+        <button class="hamburger" id="hamburger" aria-label="Open menu" title="Menu">
+          <svg width="22" height="14" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="2" rx="1" fill="white"></rect>
+            <rect y="7" width="24" height="2" rx="1" fill="white"></rect>
+            <rect y="14" width="24" height="2" rx="1" fill="white"></rect>
+          </svg>
+        </button>
+
+        <!-- Brand (edit logo / text in rentals.html if needed) -->
+        <div class="brand">
+          <div class="logo-drawer">
+            <!-- Replace image src with your logo -->
+            <img src="src/images/rIT_logo_tp.png" alt="rIT logo" />
+          </div>
+          <div class="brand-name">CertiCode</div>
+        </div>
+      </div>
+
+      <!-- Desktop navigation links (edit in HTML) -->
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#">Home</a>
+        <a href="#">Catalog</a>
+        <a href="#">Pricing</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+
+      <!-- Header actions: Book CTA + avatar -->
+      <div class="header-actions">
+        <button class="btn-book">Book Now</button>
+        <div class="avatar">AM</div>
+      </div>
+    </div>
+  </header>
+
+ <!-- =========================
+       MOBILE NAV (same as rentals.html)
+       Toggled by the hamburger button. Edit mobile links here if needed.
+       ========================= -->
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-panel" role="navigation" aria-label="Mobile menu">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
+        <div style="display:flex;gap:12px;align-items:center;">
+          <div class="logo-square">C</div>
+          <div class="brand-name">CertiCode</div>
+        </div>
+        <button id="mobileClose" class="mobile-close" aria-label="Close menu">✕</button>
+      </div>
+
+      <!-- MOBILE LINKS (EDIT HERE) -->
+      <a href="#">Home</a>
+      <a href="#">Catalog</a>
+      <a href="#">Pricing</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <hr class="mobile-sep">
+      <a href="#" class="mobile-cta">Book Now</a>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <!-- =========================
+       MAIN
+       ========================= -->
+  <!-- MAIN: page header moved OUT of the two-column grid -->
+<main class="container" role="main">
+
+  <!-- PAGE HEADER (move OUT of the grid so both panels align) -->
+  <div class="page-header">
+    <div class="page-header-left">
+      <div class="back-link"><a href="returns.html" class="link-light">← Back to Portal</a></div>
+      <h1 class="page-title">Submit Extension Request</h1>
+      <div class="subtitle">Extending rental for: <strong>Party Box Master V2 (#VDK-7742)</strong></div>
+    </div>
+    <div class="page-header-right">
+      <!-- optional right-side header actions (if any) -->
+    </div>
+  </div>
+
+  <!-- TWO-COLUMN GRID: NOW contains only the left panels and the right cost summary -->
+  <div class="main-grid">
+    <!-- Left column: calendar & panels -->
+    <section class="left-col">
+      <!-- Panel: calendar (same content you already had) -->
+      <div class="panel main-panel" id="calendarPanel">
+        <!-- Top row: Current end date + status -->
+        <div class="panel-top">
+          <div>
+            <div class="muted small">Current Rental End Date</div>
+            <div class="current-end" id="currentEndDisplay">October 14, 2023</div>
+          </div>
+
+          <div class="status-badge warning">
+            <div class="status-title">Status</div>
+            <div class="status-sub">⚠ Expires Tomorrow</div>
+          </div>
+        </div>
+
+        <hr class="panel-sep">
+
+        <div class="calendar-header">
+          <div class="calendar-title">Select New Return Date</div>
+          <div class="calendar-month" id="calendarMonth">October 2023</div>
+        </div>
+
+        <div class="calendar-grid" role="grid" aria-label="Calendar for October 2023" id="calendarGrid">
+          <!-- JS will render calendar cells here -->
+        </div>
+
+        <div class="calendar-legend">
+          <div><span class="legend-dot current-dot"></span> Current End Date</div>
+          <div><span class="legend-dot selected-dot"></span> Selected New Return Date</div>
+        </div>
+      </div>
+
+      <!-- Security Deposit Notice -->
+<div class="panel security-notice">
+  <div class="notice-content">
+    <span class="notice-icon">ℹ️</span>
+
+    <div>
+      <div class="notice-title">Security Deposit Notice</div>
+      <div class="notice-text">
+        Your existing security deposit will remain held until the final return of the equipment.
+        No additional deposit is required for this extension.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    </section>
+
+    <!-- Right column: cost summary -->
+    <aside class="right-col">
+      <div class="panel summary-panel" id="costPanel">
+        <h3 class="summary-title">Cost Summary</h3>
+
+        <div class="summary-row">
+          <div>Rate per day</div>
+          <div id="ratePerDay">₱1,516.66</div>
+        </div>
+
+        <div class="summary-row">
+          <div>Additional days</div>
+          <div id="additionalDays" class="accent">+0 Days</div>
+        </div>
+
+        <hr class="panel-sep">
+
+
+        <div class="summary-row muted small">
+          <div>Subtotal</div>
+          <div id="subtotal">₱0.00</div>
+        </div>
+
+        <div class="summary-row muted small">
+          <div>Processing Fee</div>
+          <div id="processing">₱150.50</div>
+        </div>
+
+        <hr class="panel-sep">
+
+        <div class="summary-total">
+          <div>Extension Fee</div>
+          <div id="extensionFee" class="big-amount">₱0.00</div>
+        </div>
+
+        <div class="terms">
+          <label><input type="checkbox" id="agreeTerms"> <span>I agree to the <a href="#" class="link-accent">Rental Terms of Service</a> and confirm I wish to extend my rental until <strong id="selectedUntil">Oct 14, 2023</strong>.</span></label>
+        </div>
+
+        <button id="submitBtn" class="btn-submit" disabled>Submit Extension Request →</button>
+        <div class="secure-note small muted">Secure Checkout Powered by Stripe</div>
+      </div>
+    </aside>
+
+    
+  </div> <!-- .main-grid -->
+ <section class="extension-policy">
+    <div class="extension-policy-inner">
+      <div>
+        <h3>Extension Policy</h3>
+        <p>
+          Extensions are subject to machine availability. If the item has already
+          been booked by another user for your requested dates, the extension may
+          be denied and a return will be required as originally scheduled.
+        </p>
+      </div>
+      <a href="#" class="policy-link">Learn More</a>
+    </div>
+  </section>
+</main>
+
+
+  <!-- footer (shared) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div class="copyright">© 2026 CertiCode Videoke Rentals • v2.4.0</div>
+        <div class="policy-links">
+          <a href="#" class="policy-link">Terms of Service</a>
+          <a href="#" class="policy-link">Privacy Policy</a>
+          <a href="#" class="policy-link">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================
+       PAGE SCRIPT
+       - renders a simple calendar for October 2023
+       - tracks selected date, computes days & fees
+       - enables submit when user checks terms
+       ========================= -->
+  <script>
+    (function(){
+      // Configuration / initial data (EDIT if you need dynamic values)
+      const currentEndDate = new Date(2023, 9, 14); // months zero-indexed: 9 = October
+      const initialSelected = new Date(2023, 9, 17); // preselected in screenshot
+      const ratePerDay = 1516.66;
+      const processingFee = 150.50;
+
+      // DOM refs
+      const currentEndDisplay = document.getElementById('currentEndDisplay');
+      const calendarGrid = document.getElementById('calendarGrid');
+      const ratePerDayEl = document.getElementById('ratePerDay');
+      const additionalDaysEl = document.getElementById('additionalDays');
+      const subtotalEl = document.getElementById('subtotal');
+      const processingEl = document.getElementById('processing');
+      const extensionFeeEl = document.getElementById('extensionFee');
+      const selectedUntilEl = document.getElementById('selectedUntil');
+      const agreeCheckbox = document.getElementById('agreeTerms');
+      const submitBtn = document.getElementById('submitBtn');
+
+      // display current end date
+      function formatDate(d) {
+        return d.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+      }
+      currentEndDisplay.textContent = formatDate(currentEndDate);
+      ratePerDayEl.textContent = '₱' + ratePerDay.toFixed(2);
+      processingEl.textContent = '₱' + processingFee.toFixed(2);
+
+      // build calendar for specified month (October 2023)
+      function buildCalendar(year, month, selectedDate) {
+        // clear
+        calendarGrid.innerHTML = '';
+
+        const first = new Date(year, month, 1);
+        const last = new Date(year, month + 1, 0);
+        const startWeekday = first.getDay(); // 0=Sun
+        const daysInMonth = last.getDate();
+
+        // fill leading blanks
+        for (let i=0; i<startWeekday; i++){
+          const empty = document.createElement('div');
+          empty.className = 'cal-cell empty';
+          calendarGrid.appendChild(empty);
+        }
+
+        for (let day=1; day<=daysInMonth; day++){
+          const dt = new Date(year, month, day);
+          const cell = document.createElement('button');
+          cell.className = 'cal-cell';
+          cell.setAttribute('type','button');
+          cell.setAttribute('data-day', day);
+          cell.innerHTML = '<div class="cal-day">' + day + '</div>';
+
+          // mark current end date
+          if (dt.getFullYear() === currentEndDate.getFullYear() && dt.getMonth() === currentEndDate.getMonth() && dt.getDate() === currentEndDate.getDate()){
+            cell.classList.add('current-end');
+            cell.setAttribute('title','Current rental end date');
+          }
+
+          // mark selected
+          if (selectedDate && dt.getTime() === selectedDate.getTime()){
+            cell.classList.add('selected');
+          }
+
+          // attach click handler
+          cell.addEventListener('click', function(){
+            onSelectDate(dt);
+          });
+
+          calendarGrid.appendChild(cell);
+        }
+      }
+
+      // compute days between dates (exclusive of the start day)
+      function daysBetween(start, end){
+        const ms = end - start;
+        return Math.max(0, Math.round(ms / (1000*60*60*24)));
+      }
+
+      // update summary UI
+      function updateSummary(selectedDate){
+        if (!selectedDate) return;
+        const extraDays = daysBetween(currentEndDate, selectedDate);
+        additionalDaysEl.textContent = '+' + extraDays + ' Day' + (extraDays !== 1 ? 's' : '');
+        const subtotal = (extraDays * ratePerDay);
+        subtotalEl.textContent = '₱' + subtotal.toFixed(2);
+        const extensionFee = subtotal + (extraDays > 0 ? processingFee : 0);
+        extensionFeeEl.textContent = '₱' + extensionFee.toFixed(2);
+        selectedUntilEl.textContent = selectedDate.toLocaleDateString(undefined, { month:'short', day:'numeric', year:'numeric' });
+        // enable/disable submit depending on agree checkbox
+        toggleSubmit();
+      }
+
+      // when user selects a date
+      function onSelectDate(dt){
+        // disallow selecting same or earlier date (you can change this behaviour)
+        if (dt.getTime() <= currentEndDate.getTime()){
+          alert('Please select a date after the current end date.');
+          return;
+        }
+        // rebuild calendar marking selected
+        buildCalendar(dt.getFullYear(), dt.getMonth(), dt);
+        updateSummary(dt);
+      }
+
+      // toggle submit enabled state
+      function toggleSubmit(){
+        const selectedText = additionalDaysEl.textContent || '+0 Days';
+        const daysMatch = selectedText.match(/\+(\d+)/);
+        const extraDays = daysMatch ? Number(daysMatch[1]) : 0;
+        const agreed = agreeCheckbox.checked;
+        submitBtn.disabled = !(agreed && extraDays > 0);
+      }
+
+      // attach checkbox handler
+      agreeCheckbox.addEventListener('change', toggleSubmit);
+
+      // initial render (preselect the initial date)
+      buildCalendar(initialSelected.getFullYear(), initialSelected.getMonth(), initialSelected);
+      updateSummary(initialSelected);
+
+      // hook up mobile drawer (shared across pages)
+      (function(){
+        const hamburger = document.getElementById('hamburger');
+        const drawer = document.getElementById('mobileDrawer');
+        const drawerClose = document.getElementById('drawerClose');
+
+        if (hamburger) {
+          hamburger.addEventListener('click', () => {
+            const open = drawer.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+          });
+        }
+        if (drawerClose) {
+          drawerClose.addEventListener('click', () => {
+            drawer.classList.remove('open');
+            hamburger.setAttribute('aria-expanded','false');
+            drawer.setAttribute('aria-hidden','true');
+          });
+        }
+      })();
+
+      // submit (demo)
+      submitBtn.addEventListener('click', function(){
+        if (submitBtn.disabled) return;
+        // simulate submit behaviour - replace with real API call
+        alert('Extension request submitted — implement backend call here.');
+      });
+
+    })();
+  </script>
+
+  
+  <!-- =========================
+       Scripts: tabs + mobile nav toggle
+       (Copied from your rentals.html)
+       ========================= -->
+  <script>
+    // tabs: simple visual switching (edit behavior if you hook up content per-tab)
+    document.querySelectorAll('.tab').forEach(tab=>{
+      tab.addEventListener('click', ()=>{
+        document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+
+    // mobile nav toggle (matches rentals.html)
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const closeBtn = document.getElementById('mobileClose');
+
+    hamburger && hamburger.addEventListener('click', ()=> {
+      mobileNav.classList.add('open');
+      mobileNav.setAttribute('aria-hidden','false');
+    });
+    closeBtn && closeBtn.addEventListener('click', ()=> {
+      mobileNav.classList.remove('open');
+      mobileNav.setAttribute('aria-hidden','true');
+    });
+    mobileNav && mobileNav.addEventListener('click', (e)=>{
+      if (e.target === mobileNav) {
+        mobileNav.classList.remove('open');
+        mobileNav.setAttribute('aria-hidden','true');
+      }
+    });
+  </script>
+</body>
+</html>
